@@ -64,7 +64,9 @@ public class Inventory : MonoBehaviour {
                     itemGameObject.GetComponent<Image>().sprite = itemToAdd.Sprite;
                     itemGameObject.name = itemToAdd.Title;
 
-                    itemGameObject.GetComponent<ItemData>().amount = 1;
+                    ItemData itemData = itemGameObject.GetComponent<ItemData>();
+                    itemData.item = itemToAdd;
+                    itemData.amount = 1;
 
                     break;
                 }
