@@ -23,8 +23,9 @@ public class Inventory : MonoBehaviour {
 
         for (int i = 0; i < slotCount; i++) {
             GameObject slot = Instantiate(inventorySlot);
-            slots.Add(slot);
+            slot.GetComponent<Slot>().index = i;
             slot.transform.SetParent(slotPanel.transform);
+            slots.Add(slot);
 
             items.Add(new Item());
         }
@@ -67,6 +68,7 @@ public class Inventory : MonoBehaviour {
                     ItemData itemData = itemGameObject.GetComponent<ItemData>();
                     itemData.item = itemToAdd;
                     itemData.amount = 1;
+                    itemData.slotIndex = i;
 
                     break;
                 }
